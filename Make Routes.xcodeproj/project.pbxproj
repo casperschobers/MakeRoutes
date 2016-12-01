@@ -15,6 +15,8 @@
 		AF7F75AA1DE8645F000DD926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7F75A81DE8645F000DD926 /* LaunchScreen.storyboard */; };
 		AF7F75B51DE8645F000DD926 /* Make_RoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F75B41DE8645F000DD926 /* Make_RoutesTests.swift */; };
 		AF7F75C01DE8645F000DD926 /* Make_RoutesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F75BF1DE8645F000DD926 /* Make_RoutesUITests.swift */; };
+		AF7F75CF1DE87581000DD926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75CE1DE87581000DD926 /* CoreLocation.framework */; };
+		AF7F75D11DE87586000DD926 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75D01DE87586000DD926 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		AF7F75BB1DE8645F000DD926 /* Make RoutesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Make RoutesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7F75BF1DE8645F000DD926 /* Make_RoutesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make_RoutesUITests.swift; sourceTree = "<group>"; };
 		AF7F75C11DE8645F000DD926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF7F75CE1DE87581000DD926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AF7F75D01DE87586000DD926 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7F75D11DE87586000DD926 /* MapKit.framework in Frameworks */,
+				AF7F75CF1DE87581000DD926 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 				AF7F75B31DE8645F000DD926 /* Make RoutesTests */,
 				AF7F75BE1DE8645F000DD926 /* Make RoutesUITests */,
 				AF7F759B1DE8645E000DD926 /* Products */,
+				AF7F75CD1DE87581000DD926 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +133,15 @@
 				AF7F75C11DE8645F000DD926 /* Info.plist */,
 			);
 			path = "Make RoutesUITests";
+			sourceTree = "<group>";
+		};
+		AF7F75CD1DE87581000DD926 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF7F75D01DE87586000DD926 /* MapKit.framework */,
+				AF7F75CE1DE87581000DD926 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
