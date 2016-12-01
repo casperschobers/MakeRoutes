@@ -17,6 +17,7 @@
 		AF7F75C01DE8645F000DD926 /* Make_RoutesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F75BF1DE8645F000DD926 /* Make_RoutesUITests.swift */; };
 		AF7F75CF1DE87581000DD926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75CE1DE87581000DD926 /* CoreLocation.framework */; };
 		AF7F75D11DE87586000DD926 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75D01DE87586000DD926 /* MapKit.framework */; };
+		AFFA45E01DF025C200F48925 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA45DF1DF025C200F48925 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		AF7F75C11DE8645F000DD926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7F75CE1DE87581000DD926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AF7F75D01DE87586000DD926 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AFFA45DF1DF025C200F48925 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				AF7F75A61DE8645F000DD926 /* Assets.xcassets */,
 				AF7F75A81DE8645F000DD926 /* LaunchScreen.storyboard */,
 				AF7F75AB1DE8645F000DD926 /* Info.plist */,
+				AFFA45DF1DF025C200F48925 /* MapViewController.swift */,
 			);
 			path = "Make Routes";
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				AF7F75A21DE8645F000DD926 /* SecondViewController.swift in Sources */,
 				AF7F759E1DE8645F000DD926 /* AppDelegate.swift in Sources */,
 				AF7F75A01DE8645F000DD926 /* FirstViewController.swift in Sources */,
+				AFFA45E01DF025C200F48925 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +538,7 @@
 				AF7F75C61DE8645F000DD926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF7F75C71DE8645F000DD926 /* Build configuration list for PBXNativeTarget "Make RoutesTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +547,7 @@
 				AF7F75C91DE8645F000DD926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF7F75CA1DE8645F000DD926 /* Build configuration list for PBXNativeTarget "Make RoutesUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +556,7 @@
 				AF7F75CC1DE8645F000DD926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
