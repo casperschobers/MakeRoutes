@@ -9,10 +9,10 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController{
+class MapViewController: UIViewController, CLLocationManagerDelegate{
   
   @IBOutlet weak var mapView: MKMapView!
-  
+  let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,6 +21,15 @@ class MapViewController: UIViewController{
     self.centerMapOnLocation(location: initialLocation)
     self.initializeGestureRecognizer()
     
+    // Use location when app is un use
+    self.locationManager.requestWhenInUseAuthorization()
+    
+    if CLLocationManager.locationServicesEnabled() {
+      locationManager.delegate = self
+      locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+      // Request location once
+      locationManager.requestLocation()
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -35,7 +44,7 @@ class MapViewController: UIViewController{
   
   func initializeGestureRecognizer()
   {
-    //For LongPressGesture Recoginzation
+    // Add longpressed gesture to MKMapView
     let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action:#selector(MapViewController.recognizeLongPressedGesture(_:)))
     longPressedGesture.delaysTouchesBegan = true
     mapView.addGestureRecognizer(longPressedGesture)
@@ -43,7 +52,9 @@ class MapViewController: UIViewController{
   
   func recognizeLongPressedGesture (_ sender: UILongPressGestureRecognizer)
   {
+    // Check if pressed state is began
     if sender.state == UIGestureRecognizerState.began {
+      // Set marker on location
       let tappedPoint = sender.location(in: self.mapView)
       let tapPoint = mapView.convert(tappedPoint, toCoordinateFrom: self.view)
       let tapMarker = MKPointAnnotation()
@@ -51,5 +62,13 @@ class MapViewController: UIViewController{
       self.mapView.addAnnotation(tapMarker)
       
     }
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+       self.centerMapOnLocation(location: locations.last!)
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print("Failed to find user's location: \(error.localizedDescription)")
   }
 }
