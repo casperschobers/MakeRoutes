@@ -18,7 +18,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearRoute))
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addTapped))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveRoute))
     self.mapView.delegate = self
     // Do any additional setup after loading the view, typically from a nib.
     let initialLocation = CLLocation(latitude: 51.164814, longitude: 5.799780)
@@ -42,8 +42,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     // Dispose of any resources that can be recreated.
   }
   
-  func addTapped(){
-  print("tapped")
+  func saveRoute(){
+  print("save route")
   }
   
   
