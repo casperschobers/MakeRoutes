@@ -25,10 +25,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <gestureRecognizers/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-E4-9jW">
+                                <rect key="frame" x="8" y="16" width="80" height="30"/>
+                                <state key="normal" title="Clear Route"/>
+                                <connections>
+                                    <action selector="clearRoute:" destination="9pv-A4-QxB" eventType="touchUpInside" id="YqZ-Do-j0H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Reb-bB-btK" secondAttribute="bottom" id="CfK-3h-aj7"/>
+                            <constraint firstItem="uJY-E4-9jW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="8" id="IiB-yF-fSp"/>
+                            <constraint firstItem="uJY-E4-9jW" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="16" id="QN2-65-ffH"/>
                             <constraint firstAttribute="trailing" secondItem="Reb-bB-btK" secondAttribute="trailing" id="TRK-CP-ijH"/>
                             <constraint firstItem="Reb-bB-btK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="f2K-Qe-m6B"/>
                             <constraint firstItem="Reb-bB-btK" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="lPO-1w-vmu"/>

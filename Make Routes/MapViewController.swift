@@ -9,13 +9,15 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate{
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
   
   @IBOutlet weak var mapView: MKMapView!
   let locationManager = CLLocationManager()
+  var lastPlacedPin: CLLocationCoordinate2D? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.mapView.delegate = self
     // Do any additional setup after loading the view, typically from a nib.
     let initialLocation = CLLocation(latitude: 51.164814, longitude: 5.799780)
     self.centerMapOnLocation(location: initialLocation)
@@ -42,6 +44,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
     mapView.setRegion(coordinateRegion, animated: true)
   }
   
+  func addPolylineToMap(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
+    let a = [start, end]
+    let pLine = MKPolyline(coordinates: a, count: a.count)
+    mapView.add(pLine, level: MKOverlayLevel.aboveRoads)
+    print(mapView.overlays.count)
+  }
+  
   func initializeGestureRecognizer()
   {
     // Add longpressed gesture to MKMapView
@@ -56,10 +65,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
     if sender.state == UIGestureRecognizerState.began {
       // Set marker on location
       let tappedPoint = sender.location(in: self.mapView)
-      let tapPoint = mapView.convert(tappedPoint, toCoordinateFrom: self.view)
+      let tappedCoordinate = mapView.convert(tappedPoint, toCoordinateFrom: self.view)
       let tapMarker = MKPointAnnotation()
-      tapMarker.coordinate = tapPoint
+      tapMarker.coordinate = tappedCoordinate
       self.mapView.addAnnotation(tapMarker)
+      guard (lastPlacedPin != nil) else {
+         self.lastPlacedPin = tappedCoordinate
+        return
+      }
+  
+      self.addPolylineToMap(start: lastPlacedPin!, end: tappedCoordinate)
+       self.lastPlacedPin = tappedCoordinate
       
     }
   }
@@ -71,4 +87,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate{
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("Failed to find user's location: \(error.localizedDescription)")
   }
+  
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    
+      let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+      polylineRenderer.strokeColor = UIColor.blue
+      polylineRenderer.lineWidth = 2
+      return polylineRenderer
+  }
+  
+  @IBAction func clearRoute(_ sender: UIButton) {
+    mapView.removeAnnotations(mapView.annotations)
+    mapView.removeOverlays(mapView.overlays)
+
+  }
+
 }
