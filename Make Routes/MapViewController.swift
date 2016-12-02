@@ -31,8 +31,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     if CLLocationManager.locationServicesEnabled() {
       locationManager.delegate = self
       locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-      // Request location once
-      locationManager.requestLocation()
+     
     }
     
   }
@@ -43,7 +42,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   }
   
   func saveRoute(){
-  print("save route")
+    print("save route")
   }
   
   
@@ -77,23 +76,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
       let tapMarker = MKPointAnnotation()
       tapMarker.coordinate = tappedCoordinate
       self.mapView.addAnnotation(tapMarker)
-      guard (lastPlacedPin != nil) else {
+      guard let lastPin = lastPlacedPin else {
          self.lastPlacedPin = tappedCoordinate
         return
       }
     
-      self.addPolylineToMap(start: lastPlacedPin!, end: tappedCoordinate)
+      self.addPolylineToMap(start: lastPin, end: tappedCoordinate)
        self.lastPlacedPin = tappedCoordinate
       
     }
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-       self.centerMapOnLocation(location: locations.last!)
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    print("Failed to find user's location: \(error.localizedDescription)")
   }
   
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -109,6 +100,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     mapView.removeOverlays(mapView.overlays)
     self.lastPlacedPin = nil
 
+  }
+  
+  @IBAction func goToCurrentLocaiton(_ sender: UIButton) {
+    guard let location = self.locationManager.location else {
+      return
+    }
+    self.centerMapOnLocation(location: location)
   }
 
 }
