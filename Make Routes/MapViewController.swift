@@ -73,7 +73,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     if sender.state == UIGestureRecognizerState.began {
       // Set marker on location
       let tappedPoint = sender.location(in: self.mapView)
-      let tappedCoordinate = mapView.convert(tappedPoint, toCoordinateFrom: self.view)
+      let tappedCoordinate = mapView.convert(tappedPoint, toCoordinateFrom: self.mapView)
       let tapMarker = MKPointAnnotation()
       tapMarker.coordinate = tappedCoordinate
       self.mapView.addAnnotation(tapMarker)
