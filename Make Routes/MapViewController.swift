@@ -17,6 +17,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearRoute))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addTapped))
     self.mapView.delegate = self
     // Do any additional setup after loading the view, typically from a nib.
     let initialLocation = CLLocation(latitude: 51.164814, longitude: 5.799780)
@@ -32,12 +34,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
       // Request location once
       locationManager.requestLocation()
     }
+    
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  func addTapped(){
+  print("tapped")
+  }
+  
   
   func centerMapOnLocation(location: CLLocation) {
     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,100 * 2.0, 100 * 2.0)
@@ -73,7 +81,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
          self.lastPlacedPin = tappedCoordinate
         return
       }
-  
+    
       self.addPolylineToMap(start: lastPlacedPin!, end: tappedCoordinate)
        self.lastPlacedPin = tappedCoordinate
       
@@ -96,9 +104,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
       return polylineRenderer
   }
   
-  @IBAction func clearRoute(_ sender: UIButton) {
+ func clearRoute() {
     mapView.removeAnnotations(mapView.annotations)
     mapView.removeOverlays(mapView.overlays)
+    self.lastPlacedPin = nil
 
   }
 
