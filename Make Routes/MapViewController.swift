@@ -12,8 +12,11 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
   
   @IBOutlet weak var mapView: MKMapView!
+  @IBOutlet weak var distanceLabel: UILabel!
+  
   let locationManager = CLLocationManager()
   var lastPlacedPin: CLLocationCoordinate2D? = nil
+  var routeLength = 0.0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,11 +54,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     mapView.setRegion(coordinateRegion, animated: true)
   }
   
-  func addPolylineToMap(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) {
-    let a = [start, end]
-    let pLine = MKPolyline(coordinates: a, count: a.count)
+  func addPolylineToMap(cStart: CLLocationCoordinate2D, cEnd: CLLocationCoordinate2D) {
+    let coordinates = [cStart, cEnd]
+    let pLine = MKPolyline(coordinates: coordinates, count: coordinates.count)
     mapView.add(pLine, level: MKOverlayLevel.aboveRoads)
-    print(mapView.overlays.count)
+    self.calculateDistance(start: cStart, end: cEnd)
+  }
+  
+  func calculateDistance(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D){
+    let beginCoordinate = CLLocation(latitude: start.latitude, longitude: start.longitude)
+    let endCoordinate = CLLocation(latitude: end.latitude, longitude: end.longitude)
+    self.routeLength += (beginCoordinate.distance(from: endCoordinate)/1000)
+    self.distanceLabel.text = String(format:"%.2f", self.routeLength)
   }
   
   func initializeGestureRecognizer()
@@ -81,7 +91,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return
       }
     
-      self.addPolylineToMap(start: lastPin, end: tappedCoordinate)
+      self.addPolylineToMap(cStart: lastPin, cEnd: tappedCoordinate)
        self.lastPlacedPin = tappedCoordinate
       
     }
@@ -99,7 +109,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     mapView.removeAnnotations(mapView.annotations)
     mapView.removeOverlays(mapView.overlays)
     self.lastPlacedPin = nil
-
+    self.routeLength = 0
+    self.distanceLabel.text = "0.00"
   }
   
   @IBAction func goToCurrentLocaiton(_ sender: UIButton) {

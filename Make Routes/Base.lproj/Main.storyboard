@@ -34,10 +34,38 @@
                                     <action selector="goToCurrentLocaiton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eJk-k4-ZZI"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOZ-wQ-FRN">
+                                <rect key="frame" x="16" y="72" width="91" height="37"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDx-WA-PeV">
+                                        <rect key="frame" x="8" y="8" width="34.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drG-Ae-MhV">
+                                        <rect key="frame" x="57.5" y="8" width="25.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.79769320101351349" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="drG-Ae-MhV" firstAttribute="leading" secondItem="nDx-WA-PeV" secondAttribute="trailing" constant="15" id="9jx-r1-plA"/>
+                                    <constraint firstItem="drG-Ae-MhV" firstAttribute="top" secondItem="NOZ-wQ-FRN" secondAttribute="top" constant="8" id="LWS-ao-iB8"/>
+                                    <constraint firstItem="nDx-WA-PeV" firstAttribute="top" secondItem="NOZ-wQ-FRN" secondAttribute="top" constant="8" id="OQU-Re-1rt"/>
+                                    <constraint firstAttribute="bottom" secondItem="nDx-WA-PeV" secondAttribute="bottom" constant="8" id="a4l-Bh-xTK"/>
+                                    <constraint firstAttribute="trailing" secondItem="drG-Ae-MhV" secondAttribute="trailing" constant="8" id="qcf-un-P34"/>
+                                    <constraint firstItem="nDx-WA-PeV" firstAttribute="leading" secondItem="NOZ-wQ-FRN" secondAttribute="leading" constant="8" id="vlt-Dd-WYG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NOZ-wQ-FRN" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="Jtc-d4-CJE"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Reb-bB-btK" secondAttribute="bottom" id="U4e-Q8-U7K"/>
+                            <constraint firstItem="NOZ-wQ-FRN" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="efR-Ys-BF2"/>
                             <constraint firstItem="Reb-bB-btK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="fSy-hj-zp8"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="YwY-b9-W4n" secondAttribute="bottom" constant="20" id="gZD-Vc-Mg3"/>
                             <constraint firstItem="YwY-b9-W4n" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="k52-KY-0vg"/>
@@ -47,6 +75,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Make Route" id="g9o-MP-3lq"/>
                     <connections>
+                        <outlet property="distanceLabel" destination="nDx-WA-PeV" id="ped-Lz-rla"/>
                         <outlet property="mapView" destination="Reb-bB-btK" id="ykJ-wz-F2P"/>
                     </connections>
                 </viewController>
