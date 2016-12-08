@@ -13,8 +13,12 @@ tapMarker.coordinate = tappedCoordinate
 self.mapView.addAnnotation(tapMarker)
 
 ```
-Als er meer dan 2 markers op de kaart staan teken in een `MKPolyline` tussen deze markers. Van de route die ontstaat door de geplaatste markers wordt de lengte berekend. 
+Als er meer dan 2 markers op de kaart staan teken in een `MKPolyline` tussen deze markers. Van de route die ontstaat door de geplaatste markers wordt de lengte berekend.
+
+ 
 ![Screenshot 1](images/app-w1.png)
 
 En tot slot heb ik nog een appicon gemaakt voor de app.
+
+
 ![Appicon](images/appicon.png)
