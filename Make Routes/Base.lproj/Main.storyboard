@@ -30,6 +30,12 @@
                                 <rect key="frame" x="327" y="566" width="32" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="currentLoc"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="goToCurrentLocaiton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eJk-k4-ZZI"/>
                                 </connections>
@@ -59,6 +65,12 @@
                                     <constraint firstAttribute="trailing" secondItem="drG-Ae-MhV" secondAttribute="trailing" constant="8" id="qcf-un-P34"/>
                                     <constraint firstItem="nDx-WA-PeV" firstAttribute="leading" secondItem="NOZ-wQ-FRN" secondAttribute="leading" constant="8" id="vlt-Dd-WYG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
