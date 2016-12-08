@@ -8,12 +8,12 @@
 - [X] Appicon
 
 ## Week 2 
-- [] UICollectionView voor opgeslagen routes
-- [] Splitview voor tonen opgeslagen routes
-- [] Unit testing
+- [ ] UICollectionView voor opgeslagen routes
+- [ ] Splitview voor tonen opgeslagen routes
+- [ ] Unit testing
 
 ## Week 3
 
-- [] Webview
-- [] Social features
-- [] Unit testing
+- [ ] Webview
+- [ ] Social features
+- [ ] Unit testing
