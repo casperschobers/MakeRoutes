@@ -45,8 +45,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   }
   
   func saveRoute(){
-    print("save route")
-  }
+    let route = Route(distance: self.routeLength, annotations: self.mapView.annotations, overlays: self.mapView.overlays)
+    let userDefaults = UserDefaults.standard
+    var routes = [Route]()
+    if (userDefaults.array(forKey: "routes") != nil){
+      routes = userDefaults.array(forKey: "routes") as! [Route]
+    }
+    routes.append(route)
+    userDefaults.setValue(routes, forKey: "routes")
+    userDefaults.synchronize()
+    print(routes.count)
+    }
   
   
   func centerMapOnLocation(location: CLLocation) {

@@ -41,16 +41,16 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOZ-wQ-FRN">
-                                <rect key="frame" x="16" y="72" width="91" height="37"/>
+                                <rect key="frame" x="16" y="72" width="92" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDx-WA-PeV">
-                                        <rect key="frame" x="8" y="8" width="34.5" height="21"/>
+                                        <rect key="frame" x="8" y="8" width="35" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drG-Ae-MhV">
-                                        <rect key="frame" x="57.5" y="8" width="25.5" height="21"/>
+                                        <rect key="frame" x="58" y="8" width="26" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -107,8 +107,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-LH-wnM">
-                                <rect key="frame" x="16" y="64" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAS-aS-06E">
+                                <rect key="frame" x="134.5" y="323" width="106" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -116,18 +116,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="a5V-LH-wnM" firstAttribute="leading" secondItem="97H-XU-05q" secondAttribute="leadingMargin" id="LbT-x7-a0M"/>
-                            <constraint firstItem="a5V-LH-wnM" firstAttribute="top" secondItem="2DD-Yb-Pxd" secondAttribute="bottom" id="yoT-25-UbE"/>
+                            <constraint firstItem="lAS-aS-06E" firstAttribute="centerX" secondItem="97H-XU-05q" secondAttribute="centerX" id="L8c-p8-Kbd"/>
+                            <constraint firstItem="lAS-aS-06E" firstAttribute="centerY" secondItem="97H-XU-05q" secondAttribute="centerY" id="TbB-NL-8Vt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fbt-p4-ftm"/>
-                    <connections>
-                        <outlet property="nameLabel" destination="a5V-LH-wnM" id="Uyf-39-T4h"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gt-Vq-d1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2865" y="1157"/>
+            <point key="canvasLocation" x="2864.8000000000002" y="1156.3718140929536"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8S1-d1-vBY">
@@ -149,36 +146,36 @@
         <scene sceneID="2kN-IW-1aS">
             <objects>
                 <collectionViewController id="8a5-r9-tGz" customClass="SavedRoutesCollectionViewController" customModule="Make_Routes" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="k6z-k3-zq6">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="k6z-k3-zq6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fVD-rZ-FXM">
-                            <size key="itemSize" width="375" height="50"/>
+                            <size key="itemSize" width="163" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="8zW-F9-M5C" customClass="SingleRouteCollectionViewCell" customModule="Make_Routes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="10" y="10" width="163" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="163" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8Y-6S-huI">
-                                            <rect key="frame" x="42" y="16" width="42" height="18"/>
+                                            <rect key="frame" x="42" y="13.5" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstItem="N8Y-6S-huI" firstAttribute="top" secondItem="8zW-F9-M5C" secondAttribute="topMargin" constant="8" id="Hu6-RF-O0x"/>
-                                    <constraint firstItem="N8Y-6S-huI" firstAttribute="leading" secondItem="8zW-F9-M5C" secondAttribute="leadingMargin" constant="34" id="RPk-My-t7L"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="N8Y-6S-huI" secondAttribute="bottom" constant="8" id="Z49-zY-Bu0"/>
+                                    <constraint firstItem="N8Y-6S-huI" firstAttribute="leading" secondItem="8zW-F9-M5C" secondAttribute="leadingMargin" constant="34" id="4F3-0w-zhC"/>
+                                    <constraint firstItem="N8Y-6S-huI" firstAttribute="top" secondItem="8zW-F9-M5C" secondAttribute="topMargin" constant="5.5" id="afz-je-7OL"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="nameLabel" destination="N8Y-6S-huI" id="vW9-GD-LIA"/>

@@ -7,16 +7,34 @@
 //
 
 import UIKit
+import MapKit
 
 class SingleRouteViewController: UIViewController {
   
-  @IBOutlet weak var nameLabel: UILabel!
   var name: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      self.nameLabel.text = self.name
+      self.title = name
+      guard (name != nil) else {
+        return
+      }
+      let mapView = MKMapView()
+      let leftMargin:CGFloat = 0
+      let topMargin:CGFloat = 0
+      let mapWidth:CGFloat = view.frame.size.width
+      let mapHeight:CGFloat = view.frame.size.height
+      
+      mapView.frame = CGRect(x: leftMargin, y: topMargin, width: mapWidth, height: mapHeight)
+      
+      mapView.mapType = MKMapType.standard
+      mapView.isZoomEnabled = true
+      mapView.isScrollEnabled = true
+      
+      // Or, if needed, we can position map in the center of the view
+      mapView.center = view.center
+      self.view.addSubview(mapView)
         // Do any additional setup after loading the view.
     }
 

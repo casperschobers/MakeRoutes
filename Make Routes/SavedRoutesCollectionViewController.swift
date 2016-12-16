@@ -53,22 +53,20 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
   
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
     // #warning Incomplete implementation, return the number of sections
-    return someData.count
+    return 1
   }
   
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of items
-    return 1
+    return someData.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SingleRouteCollectionViewCell
     
     // Configure the cell
-    cell.backgroundColor = .white
-    cell.nameLabel.text = self.someData[(indexPath as NSIndexPath).section]
-    
+    cell.nameLabel.text = self.someData[(indexPath as NSIndexPath).row]
     return cell
   }
   
@@ -88,6 +86,7 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
       singleRouteViewController.name = name
     }
   }
+  
   
   // MARK: UICollectionViewDelegate
   
@@ -121,4 +120,10 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
    */
   
 }
-
+extension SavedRoutesCollectionViewController: UICollectionViewDelegateFlowLayout {
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let width = (UIScreen.main.bounds.width-30) / 2.0
+    return CGSize(width: width, height: width)
+  }
+}
