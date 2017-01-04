@@ -82,7 +82,7 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
       singleRouteViewController.name = "test"
       let cell =  sender as! SingleRouteCollectionViewCell
       let indexPath = self.collectionView!.indexPath(for: cell)
-      let name = self.someData[(indexPath?.section)!]
+      let name = self.someData[(indexPath?.row)!]
       singleRouteViewController.name = name
     }
   }
