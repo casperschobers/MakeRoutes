@@ -45,7 +45,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   }
   
   func saveRoute(){
-    let route = Route(distance: self.routeLength, annotations: self.mapView.annotations, overlays: self.mapView.overlays)
+    
+    let alert = UIAlertController(title: "Save Route", message: "Enter a name for the route", preferredStyle: .alert)
+    
+    alert.addTextField { (textField) in
+      textField.placeholder = "Enter name here"
+    }
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+      let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+      print("Text field: \(textField?.text)")
+    }))
+    
+    self.present(alert, animated: true, completion: nil)
+    /*let route = Route(distance: self.routeLength, annotations: self.mapView.annotations, overlays: self.mapView.overlays)
     let userDefaults = UserDefaults.standard
     var routes = [Route]()
     if (userDefaults.array(forKey: "routes") != nil){
@@ -54,7 +68,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     routes.append(route)
     userDefaults.setValue(routes, forKey: "routes")
     userDefaults.synchronize()
-    print(routes.count)
+    print(routes.count)*/
     }
   
   
