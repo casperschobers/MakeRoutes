@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Social
 
 class SingleRouteViewController: UIViewController {
   
@@ -36,12 +37,26 @@ class SingleRouteViewController: UIViewController {
       mapView.center = view.center
       self.view.addSubview(mapView)
         // Do any additional setup after loading the view.
+       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareRoute))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  public func shareRoute(){
+    print("share")
+    if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
+      vc.setInitialText("Route: \(self.name!) is .. km and made with the Make Routes app" )
+      //vc.add(UIImage(named: "myImage.jpg")!)
+      //vc.add(URL(string: "https://www.hackingwithswift.com"))
+      present(vc, animated: true)
+    } else {
+       let alert = UIAlertController(title: "Sharing not available", message: "First sign in to Twitter in your settings", preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+    }
+  }
     
 
     /*
