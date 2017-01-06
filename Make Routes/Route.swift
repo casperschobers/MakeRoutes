@@ -9,8 +9,15 @@
 import Foundation
 import MapKit
 
-struct Route {
+class Route {
   var distance: Double
   var annotations: [MKAnnotation]
   var overlays: [MKOverlay]
+  
+  init(distance: Double, annotations: [MKAnnotation], overlays: [MKOverlay]){
+    self.distance = distance
+    self.annotations = annotations
+    self.overlays = overlays
+  }
+  
 }

@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="2628" y="-320.68965517241384"/>
         </scene>
         <!--Single Route View Controller-->
         <scene sceneID="9Jq-pw-qXe">
@@ -223,6 +223,141 @@
             </objects>
             <point key="canvasLocation" x="835" y="706"/>
         </scene>
+        <!--More-->
+        <scene sceneID="Tqh-AN-lHh">
+            <objects>
+                <tableViewController title="More" id="8bb-vW-oHQ" customClass="MoreTableViewController" customModule="Make_Routes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MHd-8f-ZEo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellToWV" id="bzj-YI-udY">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzj-YI-udY" id="kGU-uP-tmd">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Iva-KC-KPK" kind="show" id="dsL-N8-e3W"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellToText" id="h9A-mv-ip1">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9A-mv-ip1" id="sFC-wD-qWe">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ndl-RA-ca2" kind="show" id="Z5Y-O5-NE0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8bb-vW-oHQ" id="y6f-2n-OSU"/>
+                            <outlet property="delegate" destination="8bb-vW-oHQ" id="Ex0-PP-wrn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="More" id="USe-eb-50U"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="825-Aa-B1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919.20000000000005" y="-850.52473763118451"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="KJ6-c2-QRd">
+            <objects>
+                <viewController title="About" id="ndl-RA-ca2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vYs-N6-Q0c"/>
+                        <viewControllerLayoutGuide type="bottom" id="San-Ld-5Oo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jTQ-BK-gSu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swj-0m-Ef7">
+                                <rect key="frame" x="16" y="2" width="343" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <attributedString key="attributedText">
+                                    <fragment content="Make Routes">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">This app contains the following features:
+- Universal App - Advanced use of MapKit
+- UICollectionView - UISplitview
+- Master Detail View
+- Social media sharing (Twitter)
+- Data persintence with Realm -</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                            <font key="NSOriginalFont" size="14" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Webview to Native">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                            <font key="NSOriginalFont" size="14" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="swj-0m-Ef7" firstAttribute="leading" secondItem="jTQ-BK-gSu" secondAttribute="leadingMargin" id="CGI-U2-O4F"/>
+                            <constraint firstItem="swj-0m-Ef7" firstAttribute="top" secondItem="vYs-N6-Q0c" secondAttribute="bottom" constant="-62" id="aI1-Nu-0YK"/>
+                            <constraint firstItem="San-Ld-5Oo" firstAttribute="top" secondItem="swj-0m-Ef7" secondAttribute="bottom" constant="62" id="fo9-Vo-0i4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="swj-0m-Ef7" secondAttribute="trailing" id="wLK-av-OoC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="94K-Xw-WaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1801" y="-1335"/>
+        </scene>
+        <!--Feedback-->
+        <scene sceneID="zL7-Jj-Ixf">
+            <objects>
+                <viewController title="Feedback" id="Iva-KC-KPK" customClass="FeedbackViewController" customModule="Make_Routes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0j4-Ox-vDg"/>
+                        <viewControllerLayoutGuide type="bottom" id="KRs-cO-Wru"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4qf-NZ-CHY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KK3-5e-NV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-1047.5262368815593"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -236,6 +371,7 @@
                     <connections>
                         <segue destination="JCn-xZ-9yK" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="g9e-Iy-6e3" kind="relationship" relationship="viewControllers" id="8la-M9-SZo"/>
+                        <segue destination="Ynk-vQ-Hcp" kind="relationship" relationship="viewControllers" id="aiX-A1-PQu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -259,7 +395,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iq3-pk-r3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="1688.8" y="-320.68965517241384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ylc-4I-9Ty">
@@ -278,6 +414,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYA-1o-mCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1796" y="1158"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TSO-Xu-zaN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ynk-vQ-Hcp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="FTN-Xu-tFk"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Ft-na-nic">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8bb-vW-oHQ" kind="relationship" relationship="rootViewController" id="b77-H5-1Ku"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JPm-Zs-Lpq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20" y="-850.52473763118451"/>
         </scene>
     </scenes>
     <resources>
