@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "GPS Device-32.png",
+      "filename" : "currentloc@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "GPS Device-64.png",
+      "filename" : "currentloc@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "GPS Device-96.png",
+      "filename" : "currentloc@3x.png",
       "scale" : "3x"
     }
   ],
