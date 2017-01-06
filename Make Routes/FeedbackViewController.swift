@@ -9,27 +9,46 @@
 import UIKit
 import WebKit
 
-class FeedbackViewController: UIViewController, WKNavigationDelegate  {
+class FeedbackViewController: UIViewController, WKScriptMessageHandler {
   var webView: WKWebView?
-  var webConfig = WKWebViewConfiguration()
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-      webView = WKWebView (frame: self.view.frame, configuration: webConfig)
-      
-      // Delegate to handle navigation of web content
-      webView!.navigationDelegate = self
+      let contentController = WKUserContentController();
+      let deviceInfo = "\(UIDevice.current.model) \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+      print(deviceInfo)
+      let userScript = WKUserScript(
+        source: "setDeviceInfo('\(deviceInfo)')",
+        injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
+        forMainFrameOnly: true
+      )
+      let config = WKWebViewConfiguration()
+      config.userContentController = contentController
+
+      contentController.addUserScript(userScript)
+      contentController.add(self, name: "callbackHandler")
+      webView = WKWebView (frame: self.view.frame, configuration: config)
       
       view.addSubview(webView!)
       let url = URL(string: "https://makeroutes.casperschobers.nl")
       let requestUrl = URLRequest(url: url!)
       webView?.load(requestUrl)
+      
+      
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    if(message.name == "callbackHandler") {
+      let alert = UIAlertController(title: "Feedback", message: "\(message.body)" , preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    }
+  }
     
 
     /*

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AF7F759E1DE8645F000DD926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F759D1DE8645F000DD926 /* AppDelegate.swift */; };
-		AF7F75A01DE8645F000DD926 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F759F1DE8645F000DD926 /* FirstViewController.swift */; };
-		AF7F75A21DE8645F000DD926 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F75A11DE8645F000DD926 /* SecondViewController.swift */; };
 		AF7F75A51DE8645F000DD926 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7F75A31DE8645F000DD926 /* Main.storyboard */; };
 		AF7F75A71DE8645F000DD926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7F75A61DE8645F000DD926 /* Assets.xcassets */; };
 		AF7F75AA1DE8645F000DD926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7F75A81DE8645F000DD926 /* LaunchScreen.storyboard */; };
@@ -46,8 +44,6 @@
 /* Begin PBXFileReference section */
 		AF7F759A1DE8645E000DD926 /* Make Routes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Make Routes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7F759D1DE8645F000DD926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF7F759F1DE8645F000DD926 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		AF7F75A11DE8645F000DD926 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		AF7F75A41DE8645F000DD926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF7F75A61DE8645F000DD926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF7F75A91DE8645F000DD926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,8 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				AF7F759D1DE8645F000DD926 /* AppDelegate.swift */,
-				AF7F759F1DE8645F000DD926 /* FirstViewController.swift */,
-				AF7F75A11DE8645F000DD926 /* SecondViewController.swift */,
 				AF7F75A31DE8645F000DD926 /* Main.storyboard */,
 				AFD68F541E2007B7006786EF /* FeedbackViewController.swift */,
 				AFD68F521E1FF182006786EF /* MoreTableViewController.swift */,
@@ -302,13 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF7F75A21DE8645F000DD926 /* SecondViewController.swift in Sources */,
 				AFD68F531E1FF182006786EF /* MoreTableViewController.swift in Sources */,
 				AF7F759E1DE8645F000DD926 /* AppDelegate.swift in Sources */,
 				AFD68F551E2007B7006786EF /* FeedbackViewController.swift in Sources */,
 				AFA9C8731DF973DD005A5877 /* SingleRouteViewController.swift in Sources */,
 				AFA9C8711DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift in Sources */,
-				AF7F75A01DE8645F000DD926 /* FirstViewController.swift in Sources */,
 				AFA9C8C01E02CCBB005A5877 /* Route.swift in Sources */,
 				AFA9C86F1DF96929005A5877 /* SavedRoutesCollectionViewController.swift in Sources */,
 				AFFA45E01DF025C200F48925 /* MapViewController.swift in Sources */,
