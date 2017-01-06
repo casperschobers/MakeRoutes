@@ -33,7 +33,7 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="0"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -151,33 +151,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fVD-rZ-FXM">
-                            <size key="itemSize" width="163" height="50"/>
+                            <size key="itemSize" width="163" height="134"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="8zW-F9-M5C" customClass="SingleRouteCollectionViewCell" customModule="Make_Routes" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="163" height="50"/>
+                                <rect key="frame" x="10" y="10" width="163" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="163" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="163" height="134"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="savedRoute" translatesAutoresizingMaskIntoConstraints="NO" id="628-GW-q6Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="163" height="134"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8Y-6S-huI">
-                                            <rect key="frame" x="42" y="13.5" width="42" height="20.5"/>
+                                            <rect key="frame" x="60.5" y="13.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueX-vX-fvb">
+                                            <rect key="frame" x="60" y="100" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstItem="N8Y-6S-huI" firstAttribute="leading" secondItem="8zW-F9-M5C" secondAttribute="leadingMargin" constant="34" id="4F3-0w-zhC"/>
+                                    <constraint firstAttribute="bottom" secondItem="628-GW-q6Z" secondAttribute="bottom" id="0zM-Yf-w9A"/>
+                                    <constraint firstAttribute="trailing" secondItem="628-GW-q6Z" secondAttribute="trailing" id="KTh-52-Btx"/>
+                                    <constraint firstItem="628-GW-q6Z" firstAttribute="top" secondItem="8zW-F9-M5C" secondAttribute="top" id="V48-9D-nd0"/>
+                                    <constraint firstItem="N8Y-6S-huI" firstAttribute="centerX" secondItem="8zW-F9-M5C" secondAttribute="centerX" id="YMB-hk-5fM"/>
                                     <constraint firstItem="N8Y-6S-huI" firstAttribute="top" secondItem="8zW-F9-M5C" secondAttribute="topMargin" constant="5.5" id="afz-je-7OL"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ueX-vX-fvb" secondAttribute="bottom" constant="5" id="du7-sZ-mbz"/>
+                                    <constraint firstItem="ueX-vX-fvb" firstAttribute="centerX" secondItem="8zW-F9-M5C" secondAttribute="centerX" id="fTz-LR-Erj"/>
+                                    <constraint firstItem="628-GW-q6Z" firstAttribute="leading" secondItem="8zW-F9-M5C" secondAttribute="leading" id="tzw-3R-JZn"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="distanceLabel" destination="ueX-vX-fvb" id="2R9-Vk-VrF"/>
                                     <outlet property="nameLabel" destination="N8Y-6S-huI" id="vW9-GD-LIA"/>
                                     <segue destination="fHw-td-AXt" kind="showDetail" identifier="viewSingleRoute" id="efy-HN-618"/>
                                 </connections>
@@ -269,6 +284,7 @@
         <image name="currentLoc" width="32" height="32"/>
         <image name="map" width="33" height="33"/>
         <image name="mapUnselected" width="33" height="33"/>
+        <image name="savedRoute" width="333" height="333"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="efy-HN-618"/>

@@ -11,4 +11,5 @@ import UIKit
 class SingleRouteCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var distanceLabel: UILabel!
 }

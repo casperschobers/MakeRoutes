@@ -67,6 +67,10 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
     
     // Configure the cell
     cell.nameLabel.text = self.someData[(indexPath as NSIndexPath).row]
+    cell.distanceLabel.text = "10 KM"
+    cell.layer.borderWidth = 1.0
+    cell.layer.borderColor = UIColor.lightGray.cgColor
+
     return cell
   }
   
@@ -79,7 +83,6 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
         singleRouteViewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
         singleRouteViewController.navigationItem.leftItemsSupplementBackButton = true
       }
-      singleRouteViewController.name = "test"
       let cell =  sender as! SingleRouteCollectionViewCell
       let indexPath = self.collectionView!.indexPath(for: cell)
       let name = self.someData[(indexPath?.row)!]
