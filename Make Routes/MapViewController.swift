@@ -17,6 +17,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   let locationManager = CLLocationManager()
   var lastPlacedPin: CLLocationCoordinate2D? = nil
   var routeLength = 0.0
+  var pins = [Pin]()
+  var lines = [Line]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,21 +56,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-      let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-      print("Text field: \(textField?.text)")
+      let nameField = alert?.textFields![0] // Force unwrapping because we know it exists.
+      
+      let route = Route(name: nameField!.text!, distance: self.routeLength, pins: self.pins, lines: self.lines)
     }))
     
     self.present(alert, animated: true, completion: nil)
-    /*let route = Route(distance: self.routeLength, annotations: self.mapView.annotations, overlays: self.mapView.overlays)
-    let userDefaults = UserDefaults.standard
-    var routes = [Route]()
-    if (userDefaults.array(forKey: "routes") != nil){
-      routes = userDefaults.array(forKey: "routes") as! [Route]
-    }
-    routes.append(route)
-    userDefaults.setValue(routes, forKey: "routes")
-    userDefaults.synchronize()
-    print(routes.count)*/
     }
   
   
@@ -79,6 +72,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   
   func addPolylineToMap(cStart: CLLocationCoordinate2D, cEnd: CLLocationCoordinate2D) {
     let coordinates = [cStart, cEnd]
+    let line = Line(latStart: cStart.latitude, lonStart: cStart.longitude, latEnd: cEnd.latitude, lonEnd: cEnd.longitude)
+    self.lines.append(line)
     let pLine = MKPolyline(coordinates: coordinates, count: coordinates.count)
     mapView.add(pLine, level: MKOverlayLevel.aboveRoads)
     self.calculateDistance(start: cStart, end: cEnd)
@@ -106,6 +101,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
       // Set marker on location
       let tappedPoint = sender.location(in: self.mapView)
       let tappedCoordinate = mapView.convert(tappedPoint, toCoordinateFrom: self.mapView)
+      let pin = Pin(lat: tappedCoordinate.latitude, lon: tappedCoordinate.longitude)
+      self.pins.append(pin)
       let tapMarker = MKPointAnnotation()
       tapMarker.coordinate = tappedCoordinate
       self.mapView.addAnnotation(tapMarker)
@@ -134,6 +131,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     self.lastPlacedPin = nil
     self.routeLength = 0
     self.distanceLabel.text = "0.00"
+    self.pins = [Pin]()
+    self.lines = [Line]()
   }
   
   @IBAction func goToCurrentLocaiton(_ sender: UIButton) {

@@ -10,14 +10,16 @@ import Foundation
 import MapKit
 
 class Route {
+  var name: String
   var distance: Double
-  var annotations: [MKAnnotation]
-  var overlays: [MKOverlay]
+  var pins: [Pin]
+  var lines: [Line]
   
-  init(distance: Double, annotations: [MKAnnotation], overlays: [MKOverlay]){
+  init(name: String, distance: Double, pins: [Pin], lines: [Line]){
+    self.name = name
     self.distance = distance
-    self.annotations = annotations
-    self.overlays = overlays
+    self.pins = pins
+    self.lines = lines
   }
   
 }

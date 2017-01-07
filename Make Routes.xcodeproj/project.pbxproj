@@ -15,6 +15,8 @@
 		AF7F75C01DE8645F000DD926 /* Make_RoutesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7F75BF1DE8645F000DD926 /* Make_RoutesUITests.swift */; };
 		AF7F75CF1DE87581000DD926 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75CE1DE87581000DD926 /* CoreLocation.framework */; };
 		AF7F75D11DE87586000DD926 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75D01DE87586000DD926 /* MapKit.framework */; };
+		AF88E9C11E212BDD002D1801 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF88E9C01E212BDD002D1801 /* Line.swift */; };
+		AF88E9C31E212BEE002D1801 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF88E9C21E212BEE002D1801 /* Pin.swift */; };
 		AFA9C86F1DF96929005A5877 /* SavedRoutesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C86E1DF96929005A5877 /* SavedRoutesCollectionViewController.swift */; };
 		AFA9C8711DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C8701DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift */; };
 		AFA9C8731DF973DD005A5877 /* SingleRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C8721DF973DD005A5877 /* SingleRouteViewController.swift */; };
@@ -56,6 +58,8 @@
 		AF7F75C11DE8645F000DD926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF7F75CE1DE87581000DD926 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AF7F75D01DE87586000DD926 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AF88E9C01E212BDD002D1801 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		AF88E9C21E212BEE002D1801 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		AFA9C86E1DF96929005A5877 /* SavedRoutesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRoutesCollectionViewController.swift; sourceTree = "<group>"; };
 		AFA9C8701DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRouteCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFA9C8721DF973DD005A5877 /* SingleRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRouteViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				AFA9C8701DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift */,
 				AFA9C8721DF973DD005A5877 /* SingleRouteViewController.swift */,
 				AFA9C8BF1E02CCBB005A5877 /* Route.swift */,
+				AF88E9C01E212BDD002D1801 /* Line.swift */,
+				AF88E9C21E212BEE002D1801 /* Pin.swift */,
 			);
 			path = "Make Routes";
 			sourceTree = "<group>";
@@ -301,7 +307,9 @@
 				AFD68F551E2007B7006786EF /* FeedbackViewController.swift in Sources */,
 				AFA9C8731DF973DD005A5877 /* SingleRouteViewController.swift in Sources */,
 				AFA9C8711DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift in Sources */,
+				AF88E9C31E212BEE002D1801 /* Pin.swift in Sources */,
 				AFA9C8C01E02CCBB005A5877 /* Route.swift in Sources */,
+				AF88E9C11E212BDD002D1801 /* Line.swift in Sources */,
 				AFA9C86F1DF96929005A5877 /* SavedRoutesCollectionViewController.swift in Sources */,
 				AFFA45E01DF025C200F48925 /* MapViewController.swift in Sources */,
 			);

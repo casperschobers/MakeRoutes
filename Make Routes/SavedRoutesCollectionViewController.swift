@@ -12,7 +12,10 @@ private let reuseIdentifier = "Cell"
 
 class SavedRoutesCollectionViewController: UICollectionViewController {
   
-  var someData: [String] = ["Ruben", "Maikel", "Casper", "Sjors"]
+  
+  var someData: [Route] = [Route(name: "test1", distance: 10.0, pins: [Pin](), lines: [Line]()),
+                                 Route(name: "test2", distance: 12.2, pins: [Pin](), lines: [Line]()),
+                                 Route(name: "test3", distance: 13.2, pins: [Pin](), lines: [Line]())]
   var detailViewController: SingleRouteViewController? = nil
   
   override func viewDidLoad() {
@@ -66,8 +69,8 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SingleRouteCollectionViewCell
     
     // Configure the cell
-    cell.nameLabel.text = self.someData[(indexPath as NSIndexPath).row]
-    cell.distanceLabel.text = "10 KM"
+    cell.nameLabel.text = self.someData[(indexPath as NSIndexPath).row].name
+    cell.distanceLabel.text = "\(self.someData[(indexPath as NSIndexPath).row].distance) KM"
     cell.layer.borderWidth = 1.0
     cell.layer.borderColor = UIColor.lightGray.cgColor
 
@@ -85,8 +88,8 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
       }
       let cell =  sender as! SingleRouteCollectionViewCell
       let indexPath = self.collectionView!.indexPath(for: cell)
-      let name = self.someData[(indexPath?.row)!]
-      singleRouteViewController.name = name
+      let route = self.someData[(indexPath?.row)!]
+      singleRouteViewController.route = route
     }
   }
   
