@@ -7,19 +7,19 @@
 //
 
 import Foundation
-import MapKit
+import RealmSwift
 
-class Route {
-  var name: String
-  var distance: Double
-  var pins: [Pin]
-  var lines: [Line]
+class Route: Object {
+  dynamic var name: String = ""
+  dynamic var distance: Double = 0.0
+  var pins = List<Pin>()
+  var lines = List<Line>()
   
-  init(name: String, distance: Double, pins: [Pin], lines: [Line]){
+  /*init(name: String, distance: Double, pins: List<Pin>, lines: List<Line>){
     self.name = name
     self.distance = distance
     self.pins = pins
     self.lines = lines
-  }
+  }*/
   
 }

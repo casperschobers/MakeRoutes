@@ -17,6 +17,11 @@
 		AF7F75D11DE87586000DD926 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F75D01DE87586000DD926 /* MapKit.framework */; };
 		AF88E9C11E212BDD002D1801 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF88E9C01E212BDD002D1801 /* Line.swift */; };
 		AF88E9C31E212BEE002D1801 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF88E9C21E212BEE002D1801 /* Pin.swift */; };
+		AF88E9C61E224A15002D1801 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF88E9C41E224A15002D1801 /* Realm.framework */; };
+		AF88E9C71E224A15002D1801 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF88E9C41E224A15002D1801 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF88E9C81E224A15002D1801 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF88E9C51E224A15002D1801 /* RealmSwift.framework */; };
+		AF88E9C91E224A15002D1801 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF88E9C51E224A15002D1801 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF88E9CC1E226039002D1801 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF88E9CB1E226039002D1801 /* Extensions.swift */; };
 		AFA9C86F1DF96929005A5877 /* SavedRoutesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C86E1DF96929005A5877 /* SavedRoutesCollectionViewController.swift */; };
 		AFA9C8711DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C8701DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift */; };
 		AFA9C8731DF973DD005A5877 /* SingleRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C8721DF973DD005A5877 /* SingleRouteViewController.swift */; };
@@ -43,6 +48,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AF88E9CA1E224A15002D1801 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AF88E9C91E224A15002D1801 /* RealmSwift.framework in Embed Frameworks */,
+				AF88E9C71E224A15002D1801 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AF7F759A1DE8645E000DD926 /* Make Routes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Make Routes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7F759D1DE8645F000DD926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +80,9 @@
 		AF7F75D01DE87586000DD926 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AF88E9C01E212BDD002D1801 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		AF88E9C21E212BEE002D1801 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		AF88E9C41E224A15002D1801 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		AF88E9C51E224A15002D1801 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		AF88E9CB1E226039002D1801 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AFA9C86E1DF96929005A5877 /* SavedRoutesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRoutesCollectionViewController.swift; sourceTree = "<group>"; };
 		AFA9C8701DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRouteCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFA9C8721DF973DD005A5877 /* SingleRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRouteViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF88E9C61E224A15002D1801 /* Realm.framework in Frameworks */,
 				AF7F75D11DE87586000DD926 /* MapKit.framework in Frameworks */,
+				AF88E9C81E224A15002D1801 /* RealmSwift.framework in Frameworks */,
 				AF7F75CF1DE87581000DD926 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +124,8 @@
 		AF7F75911DE8645E000DD926 = {
 			isa = PBXGroup;
 			children = (
+				AF88E9C41E224A15002D1801 /* Realm.framework */,
+				AF88E9C51E224A15002D1801 /* RealmSwift.framework */,
 				AF7F759C1DE8645E000DD926 /* Make Routes */,
 				AF7F75B31DE8645F000DD926 /* Make RoutesTests */,
 				AF7F75BE1DE8645F000DD926 /* Make RoutesUITests */,
@@ -134,6 +161,7 @@
 				AFA9C8BF1E02CCBB005A5877 /* Route.swift */,
 				AF88E9C01E212BDD002D1801 /* Line.swift */,
 				AF88E9C21E212BEE002D1801 /* Pin.swift */,
+				AF88E9CB1E226039002D1801 /* Extensions.swift */,
 			);
 			path = "Make Routes";
 			sourceTree = "<group>";
@@ -175,6 +203,7 @@
 				AF7F75961DE8645E000DD926 /* Sources */,
 				AF7F75971DE8645E000DD926 /* Frameworks */,
 				AF7F75981DE8645E000DD926 /* Resources */,
+				AF88E9CA1E224A15002D1801 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,6 +335,7 @@
 				AF7F759E1DE8645F000DD926 /* AppDelegate.swift in Sources */,
 				AFD68F551E2007B7006786EF /* FeedbackViewController.swift in Sources */,
 				AFA9C8731DF973DD005A5877 /* SingleRouteViewController.swift in Sources */,
+				AF88E9CC1E226039002D1801 /* Extensions.swift in Sources */,
 				AFA9C8711DF96BC7005A5877 /* SingleRouteCollectionViewCell.swift in Sources */,
 				AF88E9C31E212BEE002D1801 /* Pin.swift in Sources */,
 				AFA9C8C01E02CCBB005A5877 /* Route.swift in Sources */,
@@ -464,6 +494,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5966C2APME;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Make Routes/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.casperschobers.Make-Routes";
@@ -477,6 +511,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5966C2APME;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Make Routes/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.casperschobers.Make-Routes";

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Social
 
-class SingleRouteViewController: UIViewController {
+class SingleRouteViewController: UIViewController, MKMapViewDelegate {
   
   var route: Route?
 
@@ -29,12 +29,28 @@ class SingleRouteViewController: UIViewController {
       
       mapView.frame = CGRect(x: leftMargin, y: topMargin, width: mapWidth, height: mapHeight)
       
+      mapView.delegate = self
       mapView.mapType = MKMapType.standard
       mapView.isZoomEnabled = true
       mapView.isScrollEnabled = true
       
       // Or, if needed, we can position map in the center of the view
-      mapView.center = view.center
+      mapView.centerOn(latitude: self.route!.pins.first!.lat, longitude: self.route!.pins.first!.lon, distance: 500)
+      
+      for pin in self.route!.pins{
+        let tappedCoordinate = CLLocationCoordinate2D(latitude: pin.lat, longitude: pin.lon)
+        let tapMarker = MKPointAnnotation()
+        tapMarker.coordinate = tappedCoordinate
+        mapView.addAnnotation(tapMarker)
+
+      }
+      
+      for line in self.route!.lines{
+        let coordinates = [CLLocationCoordinate2D(latitude: line.latStart, longitude: line.lonStart),CLLocationCoordinate2D(latitude: line.latEnd, longitude: line.lonEnd)]
+        let pLine = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        mapView.add(pLine, level: MKOverlayLevel.aboveRoads)
+      }
+      
       self.view.addSubview(mapView)
         // Do any additional setup after loading the view.
        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareRoute))
@@ -48,7 +64,7 @@ class SingleRouteViewController: UIViewController {
   public func shareRoute(){
     print("share")
     if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
-      vc.setInitialText("Route: \(self.route!.name) is .. km and made with the Make Routes app" )
+      vc.setInitialText("Route: \(self.route!.name) is \(self.route!.distance.roundTo(places: 2)) km and made with the Make Routes app" )
       //vc.add(UIImage(named: "myImage.jpg")!)
       //vc.add(URL(string: "https://www.hackingwithswift.com"))
       present(vc, animated: true)
@@ -57,7 +73,15 @@ class SingleRouteViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
   }
+  
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
     
+    let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+    polylineRenderer.strokeColor = UIColor.blue
+    polylineRenderer.lineWidth = 2
+    return polylineRenderer
+  }
+  
 
     /*
     // MARK: - Navigation

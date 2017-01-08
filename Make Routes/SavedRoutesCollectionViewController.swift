@@ -7,15 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
 class SavedRoutesCollectionViewController: UICollectionViewController {
   
-  
-  var someData: [Route] = [Route(name: "test1", distance: 10.0, pins: [Pin](), lines: [Line]()),
-                                 Route(name: "test2", distance: 12.2, pins: [Pin](), lines: [Line]()),
-                                 Route(name: "test3", distance: 13.2, pins: [Pin](), lines: [Line]())]
+  let realm = try! Realm()
   var detailViewController: SingleRouteViewController? = nil
   
   override func viewDidLoad() {
@@ -35,7 +33,9 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
   override func viewWillAppear(_ animated: Bool) {
     self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
     super.viewWillAppear(animated)
+    self.collectionView!.reloadData()
   }
+  
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -62,15 +62,17 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of items
-    return someData.count
+    return realm.objects(Route.self).count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SingleRouteCollectionViewCell
     
+    let index = Int(indexPath.row)
+    let route = realm.objects(Route.self)[index]
     // Configure the cell
-    cell.nameLabel.text = self.someData[(indexPath as NSIndexPath).row].name
-    cell.distanceLabel.text = "\(self.someData[(indexPath as NSIndexPath).row].distance) KM"
+    cell.nameLabel.text = route.name
+    cell.distanceLabel.text = "\(route.distance.roundTo(places: 2)) KM"
     cell.layer.borderWidth = 1.0
     cell.layer.borderColor = UIColor.lightGray.cgColor
 
@@ -88,7 +90,7 @@ class SavedRoutesCollectionViewController: UICollectionViewController {
       }
       let cell =  sender as! SingleRouteCollectionViewCell
       let indexPath = self.collectionView!.indexPath(for: cell)
-      let route = self.someData[(indexPath?.row)!]
+      let route = realm.objects(Route.self)[(indexPath?.row)!]
       singleRouteViewController.route = route
     }
   }

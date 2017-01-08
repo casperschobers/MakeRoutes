@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
   
@@ -17,8 +18,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
   let locationManager = CLLocationManager()
   var lastPlacedPin: CLLocationCoordinate2D? = nil
   var routeLength = 0.0
-  var pins = [Pin]()
-  var lines = [Line]()
+  var pins = List<Pin>()
+  var lines = List<Line>()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,8 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveRoute))
     self.mapView.delegate = self
     // Do any additional setup after loading the view, typically from a nib.
-    let initialLocation = CLLocation(latitude: 51.164814, longitude: 5.799780)
-    self.centerMapOnLocation(location: initialLocation)
+    self.mapView.centerOn(latitude: 51.164814, longitude: 5.799780, distance: 200)
     self.initializeGestureRecognizer()
     
     // Use location when app is un use
@@ -58,21 +58,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
       let nameField = alert?.textFields![0] // Force unwrapping because we know it exists.
       
-      let route = Route(name: nameField!.text!, distance: self.routeLength, pins: self.pins, lines: self.lines)
+      let route = Route()
+      route.name = nameField!.text!
+      route.distance = self.routeLength
+      route.pins = self.pins
+      route.lines = self.lines
+      
+      let realm = try! Realm()
+      try! realm.write() {
+        realm.add(route)
+      }
     }))
     
     self.present(alert, animated: true, completion: nil)
     }
   
-  
-  func centerMapOnLocation(location: CLLocation) {
-    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,100 * 2.0, 100 * 2.0)
-    mapView.setRegion(coordinateRegion, animated: true)
-  }
-  
   func addPolylineToMap(cStart: CLLocationCoordinate2D, cEnd: CLLocationCoordinate2D) {
     let coordinates = [cStart, cEnd]
-    let line = Line(latStart: cStart.latitude, lonStart: cStart.longitude, latEnd: cEnd.latitude, lonEnd: cEnd.longitude)
+    let line = Line()
+    line.latStart = cStart.latitude
+    line.lonStart = cStart.longitude
+    line.latEnd = cEnd.latitude
+    line.lonEnd = cEnd.longitude
     self.lines.append(line)
     let pLine = MKPolyline(coordinates: coordinates, count: coordinates.count)
     mapView.add(pLine, level: MKOverlayLevel.aboveRoads)
@@ -101,7 +108,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
       // Set marker on location
       let tappedPoint = sender.location(in: self.mapView)
       let tappedCoordinate = mapView.convert(tappedPoint, toCoordinateFrom: self.mapView)
-      let pin = Pin(lat: tappedCoordinate.latitude, lon: tappedCoordinate.longitude)
+      let pin = Pin()
+      pin.lat = tappedCoordinate.latitude
+      pin.lon = tappedCoordinate.longitude
       self.pins.append(pin)
       let tapMarker = MKPointAnnotation()
       tapMarker.coordinate = tappedCoordinate
@@ -131,15 +140,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     self.lastPlacedPin = nil
     self.routeLength = 0
     self.distanceLabel.text = "0.00"
-    self.pins = [Pin]()
-    self.lines = [Line]()
+    self.pins = List<Pin>()
+    self.lines = List<Line>()
   }
   
   @IBAction func goToCurrentLocaiton(_ sender: UIButton) {
     guard let location = self.locationManager.location else {
       return
     }
-    self.centerMapOnLocation(location: location)
+    self.mapView.centerOn(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, distance: 200)
   }
 
 }

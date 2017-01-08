@@ -7,13 +7,15 @@
 //
 
 import Foundation
-class Pin {
-  var lat: Double
-  var lon: Double
+import RealmSwift
+
+class Pin: Object{
+  dynamic var lat: Double = 0.0
+  dynamic var lon: Double = 0.0
   
-  init(lat: Double, lon: Double){
+  /*init(lat: Double, lon: Double){
     self.lat = lat
     self.lon = lon
-  }
+  }*/
   
 }
