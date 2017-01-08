@@ -25,8 +25,8 @@ En tot slot heb ik nog een appicon gemaakt voor de app.
 
 ## Week 2
 
-Als eerste heb ik de colletionview en splitview gemaakt voor het weergaven van de opgeslagen routes.
-Aangezien ik al een start project had moest ik de splitview later toevoegen. Deze werkte echter niet wat bleek was dat je in de appdelegate een aantal aanpassingen moest doen. Dit heeft mij  wel even gekost om dit uit te vinden. 
+Als eerste heb ik de `UIColletionView` en `UISplitView` gemaakt voor het weergeven van de opgeslagen routes.
+Aangezien ik al een start project had moest ik de splitview later toevoegen. Deze werkte echter niet wat bleek was dat je in de `AppDelegate` een aantal aanpassingen moest doen. Dit heeft mij  wel even gekost om dit uit te vinden. 
 
 ![UISplitView](images/app-w2-1.png)
 
@@ -35,7 +35,7 @@ Verder heb ik ook nog socialmedia sharing toegevoegd. Met behulp van `SLServiceT
 ![SocialSharing](images/app-w2-2.png)
 
 ## Week 3
-Deze week heb ik nog een Table view toegevoegd dit heb ik deze bevat 2 records. Een die verwijst naar About pagina waar informatie staat wat er voor features geimplementeerd zijn in de app. Ook bevat de table view een feedback view. Deze maakt gebruikt van een webformulier dat op [deze](https://makeroutes.casperschobers.nl) staat. Met behulp van javascript wordt er data aan de webview gegeven en wordt er ook een status terug gestuurd bij verzenden van het formulier.
+Deze week heb ik nog een Table view toegevoegd dit heb ik deze bevat 2 records. Een die verwijst naar About pagina waar informatie staat wat er voor features geimplementeerd zijn in de app. Ook bevat de table view een feedback view. Deze maakt gebruikt van een webformulier dat op [deze](https://makeroutes.casperschobers.nl) staat. Met behulp van `javascript` wordt er data aan de `WKWebView` gegeven en wordt er ook een status terug gestuurd bij verzenden van het formulier.
 
 ![FeedbackForm](images/app-w3.png)
 
