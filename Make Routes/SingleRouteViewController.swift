@@ -20,7 +20,7 @@ class SingleRouteViewController: UIViewController {
       guard (route != nil) else {
         return
       }
-      self.title = route?.name
+      self.title = self.route?.name
       let mapView = MKMapView()
       let leftMargin:CGFloat = 0
       let topMargin:CGFloat = 0
@@ -48,7 +48,7 @@ class SingleRouteViewController: UIViewController {
   public func shareRoute(){
     print("share")
     if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
-      vc.setInitialText("Route: \(self.route?.name) is .. km and made with the Make Routes app" )
+      vc.setInitialText("Route: \(self.route!.name) is .. km and made with the Make Routes app" )
       //vc.add(UIImage(named: "myImage.jpg")!)
       //vc.add(URL(string: "https://www.hackingwithswift.com"))
       present(vc, animated: true)
