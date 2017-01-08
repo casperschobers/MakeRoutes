@@ -35,7 +35,7 @@ Verder heb ik ook nog socialmedia sharing toegevoegd. Met behulp van `SLServiceT
 ![SocialSharing](images/app-w2-2.png)
 
 ## Week 3
-Deze week heb ik nog een Table view toegevoegd dit heb ik deze bevat 2 records. Een die verwijst naar About pagina waar informatie staat wat er voor features geimplementeerd zijn in de app. Ook bevat de table view een feedback view. Deze maakt gebruikt van een webformulier dat op [deze](https://makeroutes.casperschobers.nl) staat. Met behulp van `javascript` wordt er data aan de `WKWebView` gegeven en wordt er ook een status terug gestuurd bij verzenden van het formulier.
+Deze week heb ik nog een Table view toegevoegd dit heb ik deze bevat 2 records. Een die verwijst naar About pagina waar informatie staat wat er voor features geimplementeerd zijn in de app. Ook bevat de table view een feedback view. Deze maakt gebruikt van een webformulier dat op [deze url](https://makeroutes.casperschobers.nl) staat. Met behulp van `javascript` wordt er data aan de `WKWebView` gegeven en wordt er ook een status terug gestuurd bij verzenden van het formulier.
 
 ![FeedbackForm](images/app-w3.png)
 
