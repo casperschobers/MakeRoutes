@@ -9,10 +9,12 @@
 import UIKit
 import MapKit
 import Social
+import RealmSwift
 
 class SingleRouteViewController: UIViewController, MKMapViewDelegate {
   
   var route: Route?
+  let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class SingleRouteViewController: UIViewController, MKMapViewDelegate {
       self.view.addSubview(mapView)
         // Do any additional setup after loading the view.
        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareRoute))
+       navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(clearRoute))
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +64,7 @@ class SingleRouteViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
   
-  public func shareRoute(){
+  func shareRoute(){
     print("share")
     if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
       vc.setInitialText("Route: \(self.route!.name) is \(self.route!.distance.roundTo(places: 2)) km and made with the Make Routes app" )
@@ -71,6 +74,12 @@ class SingleRouteViewController: UIViewController, MKMapViewDelegate {
     } else {
        let alert = UIAlertController(title: "Sharing not available", message: "First sign in to Twitter in your settings", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
+    }
+  }
+  
+  func clearRoute(){
+    try! realm.write {
+      realm.delete(route!)
     }
   }
   

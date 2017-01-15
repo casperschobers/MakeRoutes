@@ -32,5 +32,18 @@ class Make_RoutesTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+  
+  
+  func testDoubleRoundDownExtension(){
+    let d = 12.1234
+    let dr = d.roundTo(places: 2)
+    XCTAssertEqual(12.12, dr)
+  }
+  
+  func testDoubleRoundUpExtension(){
+    let d = 12.1254
+    let dr = d.roundTo(places: 2)
+    XCTAssertEqual(12.13, dr)
+  }
     
 }
